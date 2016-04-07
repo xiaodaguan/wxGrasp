@@ -3,6 +3,11 @@
 
 personal use  
 
+可能需要安装的依赖:  
+```  
+scrapy, pymongo, selenium  
+```
+
 ##sogou: scrapy    
     crawl article urls from weixin.sogou.com  
     ### todo 
