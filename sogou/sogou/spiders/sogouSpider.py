@@ -13,7 +13,7 @@ class sogouSpider(scrapy.Spider):
     name = 'sogou'
 
     search_keywords = ['青岛交通']
-    start_urls = [('http://weixin.sogou.com/weixin?query=%s&type=2&page=3' % keyword) for keyword in search_keywords]
+    start_urls = [('http://weixin.sogou.com/weixin?query=%s&type=2' % keyword) for keyword in search_keywords]
 
     def parse(self, response):
         # 虽然这里已经完成了scrapy的request过程,但是仍然再调用selenium获取当前页面,暂时没有更好的解决方案
@@ -25,7 +25,7 @@ class sogouSpider(scrapy.Spider):
         for i in range(0, 10):
             x = "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i
             self.driver.find_element_by_xpath(x).click()
-            wait = 5 + random.randrange(0,6)
+            wait = 15 + random.randrange(0,16)
             log.msg("wait %d seconds to get detail page..." % wait)
             time.sleep(wait)
             list_page_wnd = self.driver.current_window_handle
@@ -72,7 +72,7 @@ class sogouSpider(scrapy.Spider):
         time.sleep(wait)
         page_num = re.search("&page=\d+", response.url)
         if page_num:
-            nextUrl = re.sub("&page=\d+", "&page=%d" % (int(page_num.group(0).replace("&page=")) + 1), response.url)
+            nextUrl = re.sub("&page=\d+", "&page=%d" % (int(page_num.group(0).replace("&page=","")) + 1), response.url)
         else:
             nextUrl = response.url + "&page=2"
 
