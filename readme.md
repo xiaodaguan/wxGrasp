@@ -16,10 +16,9 @@ scrapy, pymongo, selenium
 
 ##wxmsg: wxBot  
     automatic send messages to some devices.  
-    >use click elf to click on received messages automatically 
+    >use `click elf` to click on received messages automatically 
     
 ##proxy: proxy2
     set proxy for other devices  
-    point to this server
 
 ##storage: mongodb
