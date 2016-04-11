@@ -1,1 +1,8 @@
 .DS_Store
+.gitignore
+.idea
+cookies.txt
+proxys.bak
+proxys.txt
+uas.bak
+uas.txt
