@@ -12,6 +12,7 @@ scrapy, pymongo, selenium
     crawl article urls from weixin.sogou.com  
     ### todo 
     更换无ui浏览器driver
+    使用selenium.webdriver覆盖默认的request，并增加代理的使用
 
 ##wxmsg: wxBot  
     automatic send messages to some devices.  
