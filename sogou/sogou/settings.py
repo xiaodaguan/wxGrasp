@@ -16,13 +16,13 @@ SPIDER_MODULES = ['sogou.spiders']
 NEWSPIDER_MODULE = 'sogou.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'sogou (+http://www.yourdomain.com)'
+# USER_AGENT = 'sogou (+http://www.yourdomain.com)'
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.retry.RetryMiddleware': 90,
-    # Fix path to this module
-     'sogou.middlewares.RandomProxy': 100,
-     'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
+    # customize
+    # 'sogou.middlewares.RandomProxy': 100,
+    # 'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
 }
 
 ITEM_PIPELINES = {
@@ -32,3 +32,7 @@ ITEM_PIPELINES = {
 PROXY_LIST = 'proxys.txt'
 UA_LIST = 'uas.txt'
 COOKIE_LIST = 'cookies.txt'
+
+WEBDRIVER_USE_PROXY = False
+
+REDIS_ADDRESS = "172.18.79.31:6379"
