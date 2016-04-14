@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/proxy2/proxy2.py" line="352" mnemonic="5" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb380ab6-59d5-44a7-8071-f1173d26be14" name="Default" comment="selenium webdriver 替换掉scrapy request方法&#10;并增加代理webdriver 使用代理功能">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="bb380ab6-59d5-44a7-8071-f1173d26be14" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/pipelines.py" afterPath="$PROJECT_DIR$/sogou/sogou/pipelines.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/settings.py" afterPath="$PROJECT_DIR$/sogou/sogou/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" afterPath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
     </list>
     <ignored path="proxy2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,45 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sogou/sogou/pipelines.py">
+      <file leaf-file-name="proxy2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxy2/proxy2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-              <folding>
-                <element signature="e#192#206#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sogouSpider.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.259259">
-              <caret line="135" column="31" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
-              <folding>
-                <element signature="e#15#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29149798">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sogou/sogou/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.608229">
+              <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -113,7 +78,6 @@
         <option value="$PROJECT_DIR$/wxBot/wxbot.py" />
         <option value="$PROJECT_DIR$/proxy2/testTime.py" />
         <option value="$PROJECT_DIR$/wxBot/sendUrl.py" />
-        <option value="$PROJECT_DIR$/proxy2/proxy2.py" />
         <option value="$PROJECT_DIR$/sogou/proxys.bak" />
         <option value="$PROJECT_DIR$/sogou/cookies.txt" />
         <option value="$PROJECT_DIR$/sogou/sogou/items.py" />
@@ -124,6 +88,7 @@
         <option value="$PROJECT_DIR$/sogou/sogou/pipelines.py" />
         <option value="$PROJECT_DIR$/sogou/sogou/settings.py" />
         <option value="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
+        <option value="$PROJECT_DIR$/proxy2/proxy2.py" />
       </list>
     </option>
   </component>
@@ -178,6 +143,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxGrasp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxGrasp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sogou" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxGrasp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxGrasp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proxy2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -216,7 +209,7 @@
       <recent name="$PROJECT_DIR$/sogou" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.entrypoint">
+  <component name="RunManager" selected="Python.proxy2">
     <configuration default="false" name="sendUrl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -433,10 +426,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.entrypoint" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testStringSub" />
-        <item index="2" class="java.lang.String" itemvalue="Python.sendUrl" />
-        <item index="3" class="java.lang.String" itemvalue="Python.proxy2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.proxy2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.entrypoint" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testStringSub" />
+        <item index="3" class="java.lang.String" itemvalue="Python.sendUrl" />
         <item index="4" class="java.lang.String" itemvalue="Python.testTime" />
       </list>
     </recent_temporary>
@@ -530,7 +523,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460529932321</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="应领导要求,暂停分布式模式开发(wtf... TT)&#10;">
+      <created>1460602216168</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1460602216168</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -546,13 +545,13 @@
     <frame x="0" y="23" width="1680" height="1002" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1217601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1217601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34065935" sideWeight="0.5021097" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42637363" sideWeight="0.49487644" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32637364" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35494506" sideWeight="0.49487644" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294837" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
@@ -587,7 +586,8 @@
     <MESSAGE value="修改readme" />
     <MESSAGE value="小改动" />
     <MESSAGE value="selenium webdriver 替换掉scrapy request方法&#10;并增加代理webdriver 使用代理功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="selenium webdriver 替换掉scrapy request方法&#10;并增加代理webdriver 使用代理功能" />
+    <MESSAGE value="应领导要求,暂停分布式模式开发(wtf... TT)&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="应领导要求,暂停分布式模式开发(wtf... TT)&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,21 +621,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="63" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sogou/sogou/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#1128#1137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sogou/proxys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -684,7 +674,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding>
-            <element signature="e#1128#1137#0" expanded="true" />
+            <element signature="e#1128#1137#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxy2/proxy2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-104.81481">
-          <caret line="305" column="44" selection-start-line="305" selection-start-column="44" selection-end-line="305" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -974,7 +957,7 @@
         <state vertical-scroll-proportion="0.1590909">
           <caret line="74" column="31" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="31" />
           <folding>
-            <element signature="e#1128#1137#0" expanded="true" />
+            <element signature="e#1128#1137#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -998,19 +981,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sogou/sogou/pipelines.py">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-          <folding>
-            <element signature="e#192#206#0" expanded="true" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.259259">
+        <state vertical-scroll-proportion="0.71028036">
           <caret line="135" column="31" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
           <folding>
             <element signature="e#15#28#0" expanded="true" />
@@ -1018,10 +1007,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/sogou/sogou/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29149798">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.0153847">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding>
+            <element signature="e#192#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy2/proxy2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.608229">
+          <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
           <folding />
         </state>
       </provider>
