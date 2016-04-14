@@ -7,7 +7,7 @@
 #
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
-
+LOG_LEVEL = 'INFO'
 DOWNLOAD_DELAY = 5
 RETRY_TIMES = 3
 BOT_NAME = 'sogou'
@@ -36,3 +36,9 @@ COOKIE_LIST = 'cookies.txt'
 WEBDRIVER_USE_PROXY = False
 
 REDIS_ADDRESS = "172.18.79.31:6379"
+MONGODB_ADDRESS = "172.18.79.31:27017"
+MONGODB_DB = "wechatdb"
+
+WEBDRIVER_DELAY = "3-15" # seconds
+MAX_PAGE = 11
+MAX_RETRY = 3

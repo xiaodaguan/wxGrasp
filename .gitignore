@@ -6,3 +6,4 @@ proxys.bak
 proxys.txt
 uas.bak
 uas.txt
+*.pyc

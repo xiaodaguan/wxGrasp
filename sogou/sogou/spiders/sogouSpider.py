@@ -1,11 +1,15 @@
 # coding=utf-8
 import scrapy
 from scrapy import log
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from sogou.items import SogouItem
 import time
 import datetime
 import hashlib
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import re
 import random
 
@@ -38,82 +42,123 @@ class sogouSpider(scrapy.Spider):
 
     def start_requests(self):
         for start_url in self.start_urls:
+            url_to_get = start_url
+            while url_to_get:
+                # print os.getcwd()
+                # random proxy
 
-            # print os.getcwd()
-            # random proxy
+                if self.settings['WEBDRIVER_USE_PROXY']:
+                    self.getProxyDriver()
+                else:
+                    self.getDriver()
 
-            if self.settings['WEBDRIVER_USE_PROXY']:
-                self.getProxyDriver()
-            else:
-                self.getDriver()
+                # # test
+                # self.driver.get("http://guanxiaoda.cn")
+                # print(self.driver.page_source)
+                # #
+                log.msg("selenium webdriver visiting list page: [%s]" % url_to_get)
+                self.driver_get_or_retry(url_to_get)
 
-            # # test
-            # self.driver.get("http://guanxiaoda.cn")
-            # print(self.driver.page_source)
-            # #
+                self.wnds_visited = set()
+                for i in range(0, 10):
+                    try:
+                        brief = self.driver.find_element_by_xpath("//div[@class='txt-box']/p[contains(@id,'summary_%d')]" % i).text
+                        weixin_name = self.driver.find_element_by_xpath("//div[contains(@id,'box_%d')]/div[@class='txt-box']/div[@class='s-p']/a[@id='weixin_account']" % i).get_attribute("title")
+                        str_pubtime = self.driver.find_element_by_xpath("//div[contains(@id,'box_%d')]/div[@class='txt-box']/div[@class='s-p']/span[@class='time']" % i).text.encode('utf-8')
+                        pubtime = self.switch_time(str_pubtime)
 
-            self.driver.get(start_url)
-            self.wnds_visited = set()
-            for i in range(0, 10):
+                        item = SogouItem()
 
-                brief = self.driver.find_element_by_xpath("//div[@class='txt-box']/p[contains(@id,'summary_%d')]" % i).text
-                weixin_name = self.driver.find_element_by_xpath("//div[contains(@id,'box_%d')]/div[@class='txt-box']/div[@class='s-p']/a[@id='weixin_account']" % i).get_attribute("title")
-                str_pubtime = self.driver.find_element_by_xpath("//div[contains(@id,'box_%d')]/div[@class='txt-box']/div[@class='s-p']/span[@class='time']" % i).text.encode('utf-8')
-                pubtime = self.switch_time(str_pubtime)
+                        # item['page_source'] = html
+                        item['brief'] = brief
+                        item['weixin_name'] = weixin_name
+                        item['pubtime'] = pubtime
+                        item['search_keyword'] = self.keyword
 
-                item = SogouItem()
+                        wait = self.get_sleep_time()
+                        log.msg("wait %d seconds to get detail page..." % wait)
+                        time.sleep(wait)
 
-                # item['page_source'] = html
-                item['brief'] = brief
-                item['weixin_name'] = weixin_name
-                item['pubtime'] = pubtime
-                item['search_keyword'] = self.keyword
+                        x = "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i
+                        self.driver.find_element_by_xpath(x).click()
+                        time.sleep(3)  # wait page load
 
-                x = "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i
-                self.driver.find_element_by_xpath(x).click()
-                # wait = 15 + random.randrange(0,16)
-                # log.msg("wait %d seconds to get detail page..." % wait)
-                # time.sleep(wait)
-                list_page_wnd = self.driver.current_window_handle
-                wnds = self.driver.window_handles
-                for wnd in wnds:
-                    if list_page_wnd == wnd:
-                        continue
-                    elif wnd in self.wnds_visited:
-                        # print("visited! [%s]" % wnd)
-                        continue
-                    else:
-                        self.driver.switch_to.window(wnd)  # switch to detail page window
-                        self.wnds_visited.add(wnd)
-                        print("visiting... [%d] [%s]" % (i, self.driver.title))
-                        # visiting detail page
+                        list_page_wnd = self.driver.current_window_handle
+                        wnds = self.driver.window_handles
+                        for wnd in wnds:
+                            # skip visited windows
+                            if list_page_wnd == wnd:
+                                continue
+                            elif wnd in self.wnds_visited:
+                                continue
+                            else:
+                                self.driver.switch_to.window(wnd)  # switch to detail page window
+                                self.wnds_visited.add(wnd)
+                                print("visiting... [%d] [%s]" % (i, self.driver.title))
+                                # visiting detail page
 
 
-                        url = self.driver.current_url
-                        title = self.driver.title
-                        # html = self.driver.page_source
-                        item['url'] = url
-                        item['title'] = title
+                                url = self.driver.current_url
+                                title = self.driver.title
+                                # html = self.driver.page_source
+                                item['url'] = url
+                                item['title'] = title
 
-                        meta = {'item': item}
+                                meta = {'item': item}
 
-                        yield scrapy.Request(url=url, callback=self.parse_item, meta=meta)
-                # end for: each window
-                self.driver.switch_to.window(list_page_wnd)
-            # end for: each detail link
-            log.msg("page %s parsed." % start_url)
-            self.driver.quit()
+                                yield scrapy.Request(url=url, callback=self.parse_item, meta=meta)
 
-            wait = 60 + random.randrange(0, 61)
-            log.msg("wait %d seconds to get next page..." % wait)
-            time.sleep(wait)
-            page_num = re.search("&page=\d+", start_url)
-            if page_num:
-                nextUrl = re.sub("&page=\d+", "&page=%d" % (int(page_num.group(0).replace("&page=", "")) + 1), start_url)
-            else:
-                nextUrl = start_url + "&page=2"
+                        self.driver.switch_to.window(list_page_wnd)
+                    except NoSuchElementException:
+                        print("element not found while parsing detail page %d" % i)
 
-            yield scrapy.Request(url=nextUrl, callback=self.parse)
+                log.msg("list page %s parsed." % url_to_get)
+                self.driver.quit()
+
+                wait = self.get_sleep_time()
+                log.msg("wait %d seconds to get next list page..." % wait)
+                time.sleep(wait)
+
+                url_to_get = self.get_next_url(url_to_get)
+
+    def need_retry_list(self):
+        '''
+        判断是否需要retry
+        :return: false 不需要重试; true 需要重试
+        '''
+        page_source = self.driver.page_source
+        if page_source.find(u"的相关微信公众号文章") > -1:
+            log.msg("成功获得列表页.")
+            return False
+
+        if self.retry_time > int(self.settings['MAX_RETRY']):
+            log.msg("超过最大重试次数 %s" % self.settings['MAX_RETRY'])
+            self.retry_time = 0
+            return False
+        log.msg("未成功获得列表页,将重试...")
+        return True
+
+    def need_retry_detail(self):
+        '''
+        判断是否需要retry
+        :return: false 不需要重试; true 需要重试
+        '''
+        # 详情页不做判断,允许遗漏
+        return False
+
+    def get_next_url(self, curr_url):
+
+        page_num = re.search("&page=\d+", curr_url)
+        nextUrl = None
+        if page_num:
+            int_page_num = int(page_num.group(0).replace("&page=", ""))
+            if int_page_num >= int(self.settings['MAX_PAGE']):
+                log.msg("reach max page count: [curr: %d|max: %s], will stop." % (int_page_num, self.settings['MAX_PAGE']))
+                return None
+            nextUrl = re.sub("&page=\d+", "&page=%d" % (int_page_num + 1), curr_url)
+        else:
+            nextUrl = curr_url + "&page=2"
+        return nextUrl
 
     def parse_item(self, response):
         if response.body.find("当前请求已过期") > -1:
@@ -180,3 +225,26 @@ class sogouSpider(scrapy.Spider):
         log.msg("creating driver: [%s] using proxy [%s]" % (self.driver.name, PROXY_ADDRESS))
         self.driver.maximize_window()
 
+    def get_sleep_time(self):
+        WEBDRIVER_DELAY = self.settings['WEBDRIVER_DELAY']
+        m = re.match("\d+\-\d+$", WEBDRIVER_DELAY)
+
+        if m:
+            base = WEBDRIVER_DELAY.split('-')[0]
+            ran = WEBDRIVER_DELAY.split('-')[1]
+            return random.randrange(int(base), int(ran))
+        m = re.match("\d+$", WEBDRIVER_DELAY)
+        if m:
+            return int(WEBDRIVER_DELAY)
+        print("check settings:WEBDRIVER_DELAY, current conf: %s" % WEBDRIVER_DELAY)
+
+    def driver_get_or_retry(self, url_to_get):
+        self.driver.get(url_to_get)
+        time.sleep(3)  # wait page load
+
+        self.retry_time = 0
+        while self.need_retry_list():
+            log.msg("retrying... [%d]" % self.retry_time)
+            self.retry_time += 1
+            self.driver.get(url_to_get)
+            time.sleep(3)  # wait page load

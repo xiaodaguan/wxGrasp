@@ -11,10 +11,11 @@ from scrapy.exceptions import DropItem
 class SogouPipeline(object):
 
 
-    def __init__(self):
+    def __init__(self,mongo_uri,mongo_db):
         # connection = pymongo.MongoClient("mongodb://guanxiaoda.cn:27017")
-        connection = pymongo.MongoClient("mongodb://172.18.79.31:27017")
-        db = connection['wechatdb']
+        mongo_uri = "mongodb://%s" % mongo_uri
+        connection = pymongo.MongoClient(mongo_uri)
+        db = connection[mongo_db]
         self.collection = db['wechat_article_info']
         # item crawled before
         log.msg("loading crawled items before...")
@@ -32,6 +33,13 @@ class SogouPipeline(object):
             self.url_crawled.add(item['_id'])
             if i % 1000 == 0 : print(i)
         log.msg("read %d crawled items" % len(result))
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            mongo_uri=crawler.settings.get('MONGODB_ADDRESS'),
+            mongo_db=crawler.settings.get('MONGODB_DB')
+        )
 
     def process_item(self, item, spider):
 
