@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bb380ab6-59d5-44a7-8071-f1173d26be14" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy2/outdata/wxReadNum.txt" afterPath="$PROJECT_DIR$/proxy2/outdata/wxReadNum.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy2/proxy2.py" afterPath="$PROJECT_DIR$/proxy2/proxy2.py" />
     </list>
     <ignored path="proxy2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +31,8 @@
       <file leaf-file-name="proxy2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxy2/proxy2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.608229">
-              <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.6632479">
+              <caret line="348" column="35" selection-start-line="348" selection-start-column="35" selection-end-line="348" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -54,7 +56,7 @@
       </map>
     </option>
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="xiaodaguan" target-remote="origin" target-branch="master" />
+      <push-target-info repo="$PROJECT_DIR$" source="xiaodaguan" target-remote="origin" target-branch="xiaodaguan" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -529,7 +531,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460602216168</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="修改了proxy2更新mongody的方式">
+      <created>1460618607142</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1460618607142</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -548,10 +556,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1217601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34065935" sideWeight="0.5021097" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32637364" sideWeight="0.5045208" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32637364" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35494506" sideWeight="0.49487644" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32637364" sideWeight="0.4954792" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35494506" sideWeight="0.49487644" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294837" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
@@ -587,7 +595,8 @@
     <MESSAGE value="小改动" />
     <MESSAGE value="selenium webdriver 替换掉scrapy request方法&#10;并增加代理webdriver 使用代理功能" />
     <MESSAGE value="应领导要求,暂停分布式模式开发(wtf... TT)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="应领导要求,暂停分布式模式开发(wtf... TT)&#10;" />
+    <MESSAGE value="修改了proxy2更新mongody的方式" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了proxy2更新mongody的方式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1019,8 +1028,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxy2/proxy2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.608229">
-          <caret line="345" column="36" selection-start-line="345" selection-start-column="36" selection-end-line="345" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.6632479">
+          <caret line="348" column="35" selection-start-line="348" selection-start-column="35" selection-end-line="348" selection-end-column="35" />
           <folding />
         </state>
       </provider>
