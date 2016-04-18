@@ -17,7 +17,7 @@ import random
 class sogouSpider(scrapy.Spider):
     name = 'sogou'
 
-    search_keywords = ['青岛交通']
+    search_keywords = ['互联网金融']
     start_urls = [('http://weixin.sogou.com/weixin?query=%s&type=2' % keyword) for keyword in search_keywords]
 
     def __init__(self, **kwargs):

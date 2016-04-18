@@ -11,19 +11,21 @@ class MyWXBot(WXBot):
 
     def schedule(self):
 
-        self.send_msg('gxd', 'test')
-        conn = pymongo.MongoClient("mongodb://172.18.79.31:27017")
-        db = conn['wechatdb']
-        self.coll = db['wechat_article_info']
+        while True:
+            self.send_msg('filehelper', 'start sending urls...')
+            conn = pymongo.MongoClient("mongodb://172.18.79.31:27017")
+            db = conn['wechatdb']
+            self.coll = db['wechat_article_info']
 
-        result = self.coll.find()
-        for item in result:
-            url = item['url']
-            self.send_msg('gxd',url)
-            print("sent [%s] to [%s]"%(url,"gxd"))
-            time.sleep(15)
+            result = self.coll.find()
+            for item in result:
+                url = item['url']
+                self.send_msg('filehelper',url)
+                print("sent [%s] to [%s]"%(url,"filehelper"))
+                time.sleep(15)
 
-        print("all sent. %d" % len(result))
+            print("all sent. %d" % result.count())
+            time.sleep(300)
 
 
 
