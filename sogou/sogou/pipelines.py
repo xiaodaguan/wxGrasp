@@ -57,6 +57,11 @@ class SogouPipeline(object):
         else:
             valid = True
 
+        if item['url'].find("mp.weixin.qq.com") > -1:
+            valid = True
+        else:
+            valid = False
+
         if valid:
             self.collection.insert(dict(item))
             self.url_crawled.add(item['url'])
