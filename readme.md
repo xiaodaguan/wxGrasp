@@ -6,6 +6,7 @@ personal use
 可能需要安装的依赖:  
 ```  
 scrapy, pymongo, selenium  
+64位windows可能需要安装pywin32模块
 ```
 
 ##sogou: scrapy    
