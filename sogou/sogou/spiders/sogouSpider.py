@@ -69,11 +69,13 @@ class sogouSpider(scrapy.Spider):
 
                 try:
                     self.driver_get_or_retry(url_to_get)
+                    # self.close_unuse_wnds()
+                    self.wnds_visited = set()
+                    list_page_wnd = self.driver.current_window_handle
                 except Exception:
                     log.msg("err while selenium requesting: %s" % url_to_get, _level=log.ERROR)
-                # self.close_unuse_wnds()
-                self.wnds_visited = set()
-                list_page_wnd = self.driver.current_window_handle
+                    continue
+
                 for i in range(0, 10):
                     try:
                         brief = self.driver.find_element_by_xpath(
@@ -228,17 +230,24 @@ class sogouSpider(scrapy.Spider):
 
     def switch_time(self, time_str):
         '''
-        :param time_str: 时间字符串: n小时前,n分钟前,n秒前
+        :param time_str: 时间字符串: n天前,n小时前,n分钟前,n秒前
         :return: str formated time
         '''
+        m = re.match("\d+天前", time_str)
+        if m:
+            t = m.group()[0]
+            return (datetime.datetime.now() - datetime.timedelta(days=int(t))).strftime("%Y-%m-%d")
+
         m = re.match("\d+[小]*时前", time_str)
         if m:
             t = m.group()[0]
             return (datetime.datetime.now() - datetime.timedelta(hours=int(t))).strftime("%Y-%m-%d %H:%M:%S")
+
         m = re.match("\d+分[钟]*前", time_str)
         if m:
             t = m.group()[0]
             return (datetime.datetime.now() - datetime.timedelta(minutes=int(t))).strftime("%Y-%m-%d %H:%M:%S")
+
         m = re.match("\d+秒前", time_str)
         if m:
             t = m.group()[0]
