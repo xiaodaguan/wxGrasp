@@ -17,8 +17,11 @@ from SocketServer import ThreadingMixIn
 from cStringIO import StringIO
 from subprocess import Popen, PIPE
 from HTMLParser import HTMLParser
+
+import datetime
 import pymongo
 import time
+from pymongo import ReturnDocument
 
 
 def with_color(c, s):
@@ -315,23 +318,50 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
             if res_body_text:
                 print with_color(32, "==== RESPONSE BODY ====\n%s\n" % res_body_text)
                 if res_body_text.find("\"like_num\":") > -1 and res_body_text.find("\"read_num\":") > -1:
-                    # write to file
-                    self.outFile = open("outdata/wxReadNum.txt", "a")
-                    self.outFile.write("=========================== WX RN REQ RES ================================\n")
-                    self.outFile.write("request_header_text: %s \n" % req_header_text)
-                    self.outFile.write("response_body_text: %s \n" % res_body_text)
-                    self.outFile.close()
-                    # insert into mongodb
-                    mongoConn = pymongo.MongoClient("172.18.79.31:27017")
-                    mongoDb = mongoConn['wechatdb']
-                    mongoColl = mongoDb['wechat_read_num_info']
-                    req_header_dic = req.headers.dict
-                    item = {'req_header':req_header_dic, 'res_body':json.loads(res_body_text), 'insert_time':time.strftime('%Y-%m-%d %H:%M:%S')}
-                    mongoColl.insert(item)
-                    print("debuging...")
+
+                    referer = req.headers.dict['referer']
+                    m = re.match(r'http.+&scene=\d+', referer)
+                    if m:
+                        article_url = m.group(0)
+
+                        res_body_json = json.loads(res_body_text)
+                        read_num = res_body_json['appmsgstat']['real_read_num']
+                        like_num = res_body_json['appmsgstat']['like_num']
+
+                        update_time = datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d %H%M%S")
+
+                        # # write to file
+                        # self.outFile = open("outdata/wxReadNum.txt", "a")
+                        # self.outFile.write("=========================== WX RN REQ RES ================================\n")
+                        # self.outFile.write("request_header_text: %s \n" % req_header_text)
+                        # self.outFile.write("response_body_text: %s \n" % res_body_text)
+                        # self.outFile.close()
+                        # insert into mongodb
+                        mongoConn = pymongo.MongoClient("mongodb://172.18.79.31:27017")
+                        mongoDb = mongoConn['wechatdb']
+                        mongoColl = mongoDb['wechat_article_info']
+
+                        query_pattern = article_url[article_url.find("/s?") + 3:]
+                        item = mongoColl.find_one_and_update(
+                            filter={
+                                "url": {"$regex": query_pattern}
+                            },
+                            update=
+                            {
+                                '$set': {
+                                    'read_num_%s' % update_time: read_num,
+                                    'like_num_%s' % update_time: like_num
+                                }
+                            },
+                            return_document=ReturnDocument.AFTER
+                        )
+                        if item:
+                            print("updated!")
+                        else:
+                            print("not found.")
 
     def request_handler(self, req, req_body):
-            pass
+        pass
 
     def response_handler(self, req, req_body, res, res_body):
         pass
@@ -344,7 +374,7 @@ def test(HandlerClass=ProxyRequestHandler, ServerClass=ThreadingHTTPServer, prot
     if sys.argv[1:]:
         port = int(sys.argv[1])
     else:
-        port = 8080
+        port = 8765
     server_address = ('', port)
 
     HandlerClass.protocol_version = protocol
@@ -358,5 +388,3 @@ def test(HandlerClass=ProxyRequestHandler, ServerClass=ThreadingHTTPServer, prot
 
 if __name__ == '__main__':
     test()
-
-

@@ -208,6 +208,7 @@ class WXBot:
         return dic
 
     def test_sync_check(self):
+        print("sync check ...")
         for host in ['webpush', 'webpush2']:
             self.sync_host = host
             retcode = self.sync_check()[0]
