@@ -65,7 +65,7 @@ class SogouPipeline(object):
         if valid:
             self.collection.insert(dict(item))
             self.url_crawled.add(item['url'])
-            log.msg("item wrote to mongodb %s / %s" % ('wechatdb', 'wechat_article_info'))
+            log.msg("item wrote to mongodb %s / %s: %s" % ('wechatdb', 'wechat_article_info',item['title']))
         else:
             log.msg("item droped %s " % item['title'])
         return item
