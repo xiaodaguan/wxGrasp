@@ -13,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import re
 import random
 from scrapy.settings import Settings
+import json
 
 
 class sogouSpider(scrapy.Spider):
@@ -99,48 +100,58 @@ class sogouSpider(scrapy.Spider):
                         item['pubtime'] = pubtime
                         item['search_keyword'] = re.search("query=.+?&", url_to_get).group(0).replace("query=", "").replace("&", "")
 
-                        wait = self.get_sleep_time()
-                        log.msg("wait %d seconds to get detail page..." % wait)
-                        time.sleep(wait)
+                        # 以下是scrapy版抽取详情页
+                        item['url'] = self.driver.find_element_by_xpath("//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).get_attribute("href")
+                        item['title'] = self.driver.find_element_by_xpath("//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).text
+                        # html = self.driver.page_source
 
-                        x = "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i
-                        self.driver.find_element_by_xpath(x).click()
-                        time.sleep(3)  # wait page load
+                        meta = {'item': item}
 
-                        wnds = self.driver.window_handles
-                        for wnd in wnds:
-                            # skip visited windows
-                            if list_page_wnd == wnd:
-                                continue
-                            elif wnd in self.wnds_visited:
-                                continue
-                            else:
-                                self.driver.switch_to.window(wnd)  # switch to detail page window
-                                self.wnds_visited.add(wnd)
-                                print("visiting... [%d] [%s]" % (i, self.driver.title))
-                                # visiting detail page
+                        yield scrapy.Request(url=item['url'], callback=self.parse_item, meta=meta)
 
+                        # 以下是selenium webdriver版抽取详情页
+                        # wait = self.get_sleep_time()
+                        # log.msg("wait %d seconds to get detail page..." % wait)
+                        # time.sleep(wait)
 
-                                url = self.driver.current_url
-                                title = self.driver.title
-                                # html = self.driver.page_source
-                                item['url'] = url
-                                item['title'] = title
-
-                                meta = {'item': item}
-
-                                yield scrapy.Request(url=url, callback=self.parse_item, meta=meta)
-                        self.driver.close()
-                        self.driver.switch_to.window(list_page_wnd)
+                        # x = "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i
+                        # self.driver.find_element_by_xpath(x).click()
+                        # time.sleep(3)  # wait page load
+                        #
+                        # wnds = self.driver.window_handles
+                        # for wnd in wnds:
+                        #     # skip visited windows
+                        #     if list_page_wnd == wnd:
+                        #         continue
+                        #     elif wnd in self.wnds_visited:
+                        #         continue
+                        #     else:
+                        #         self.driver.switch_to.window(wnd)  # switch to detail page window
+                        #         self.wnds_visited.add(wnd)
+                        #         print("visiting... [%d] [%s]" % (i, self.driver.title))
+                        #         # visiting detail page
+                        #
+                        #
+                        #         url = self.driver.current_url
+                        #         title = self.driver.title
+                        #         # html = self.driver.page_source
+                        #         item['url'] = url
+                        #         item['title'] = title
+                        #
+                        #         meta = {'item': item}
+                        #
+                        #         yield scrapy.Request(url=url, callback=self.parse_item, meta=meta)
+                        # self.driver.close()
+                        # self.driver.switch_to.window(list_page_wnd)
                         # break # debug
                     except NoSuchElementException:
                         print("element not found while parsing detail page %d" % i)
                     except WebDriverException:
                         print("web driver exception %d" % i)
 
-                log.msg("list page %s parsed." % url_to_get)
+                # log.msg("list page %s parsed." % url_to_get)
 
-                wait = self.get_sleep_time()
+                wait = 2 * self.get_sleep_time()
                 log.msg("wait %d seconds to get next list page..." % wait)
                 time.sleep(wait)
 
@@ -211,7 +222,7 @@ class sogouSpider(scrapy.Spider):
             log.msg("当前请求已过期 %s " % response.url)
             return
         item = response.meta['item']
-        print("parsing detail page %s ... " % item['title'])
+        # print("parsing detail page %s ... " % item['title'])
 
         content = response.xpath("//div[@id='page-content']//text()").extract()
         img_url = response.xpath("//div[@id='page-content']//img/@src").extract()
@@ -227,6 +238,18 @@ class sogouSpider(scrapy.Spider):
         item['md5'] = md5
         item['inserttime'] = inserttime
 
+        yield scrapy.Request(url=item['url'].encode('utf-8').replace("/s?", "/mp/getcomment?"), callback=self.parse_read_like, meta={'item': item})
+
+    def parse_read_like(self, response):
+        item = response.meta['item']
+        # print("parsing read&like nums of %s" % item['title'])
+        json_body = json.loads(response.body)
+        read_num = json_body['read_num']
+        like_num = json_body['like_num']
+
+        item['read_num'] = read_num
+        item['like_num'] = like_num
+        log.msg("%s {'read':%d, 'like':%d}" % (item['title'], item['read_num'], item['like_num']))
         yield item
 
     def switch_time(self, time_str):
