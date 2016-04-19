@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb380ab6-59d5-44a7-8071-f1173d26be14" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/qr.png" afterPath="$PROJECT_DIR$/wxBot/qr.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/settings.py" afterPath="$PROJECT_DIR$/sogou/sogou/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" afterPath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/contact_list.json" afterPath="$PROJECT_DIR$/wxBot/contact_list.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/contacts.json" afterPath="$PROJECT_DIR$/wxBot/contacts.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/member_list.json" afterPath="$PROJECT_DIR$/wxBot/member_list.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/public_list.json" afterPath="$PROJECT_DIR$/wxBot/public_list.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/sendUrl.py" afterPath="$PROJECT_DIR$/wxBot/sendUrl.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/special_list.json" afterPath="$PROJECT_DIR$/wxBot/special_list.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/wxbot.py" afterPath="$PROJECT_DIR$/wxBot/wxbot.py" />
     </list>
     <ignored path="proxy2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,22 +31,31 @@
       <file leaf-file-name="sogouSpider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51306415">
-              <caret line="1288" column="17" selection-start-line="1288" selection-start-column="17" selection-end-line="1288" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.6703786">
+              <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
               <folding>
                 <element signature="e#15#28#0" expanded="true" />
-                <element signature="e#25490#26002#0" expanded="true" />
-                <element signature="e#26042#29871#0" expanded="true" />
-                <element signature="e#29912#30378#0" expanded="true" />
-                <element signature="e#30421#30540#0" expanded="true" />
-                <element signature="e#30589#31128#0" expanded="true" />
-                <element signature="e#31174#32079#0" expanded="true" />
-                <element signature="e#32126#32834#0" expanded="true" />
-                <element signature="e#32869#32940#0" expanded="true" />
-                <element signature="e#32981#33650#0" expanded="true" />
-                <element signature="e#33690#34144#0" expanded="true" />
-                <element signature="e#34201#34510#0" expanded="true" />
+                <element signature="e#647#1160#0" expanded="true" />
+                <element signature="e#5410#5953#0" expanded="true" />
+                <element signature="e#5996#6115#0" expanded="true" />
+                <element signature="e#6164#6724#0" expanded="true" />
+                <element signature="e#6770#7675#0" expanded="true" />
+                <element signature="e#7722#8430#0" expanded="true" />
+                <element signature="e#8465#8536#0" expanded="true" />
+                <element signature="e#8577#9246#0" expanded="true" />
+                <element signature="e#9286#9740#0" expanded="true" />
+                <element signature="e#9798#10109#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sogou/sogou/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,11 +137,11 @@
         <option value="$PROJECT_DIR$/sogou/proxys.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/sogou/sogou/settings.py" />
         <option value="$PROJECT_DIR$/proxy2/proxy2.py" />
         <option value="$PROJECT_DIR$/sogou/sogou/pipelines.py" />
         <option value="$PROJECT_DIR$/wxBot/wxbot.py" />
         <option value="$PROJECT_DIR$/wxBot/sendUrl.py" />
+        <option value="$PROJECT_DIR$/sogou/sogou/settings.py" />
         <option value="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
       </list>
     </option>
@@ -646,7 +648,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460974578625</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="运行版本">
+      <created>1461029011372</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1461029011372</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -668,11 +676,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3539823" sideWeight="0.50859374" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32632744" sideWeight="0.4921875" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46666667" sideWeight="0.49140626" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46666667" sideWeight="0.49140626" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496112" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.4972826" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46888888" sideWeight="0.4978903" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46888888" sideWeight="0.4978903" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -728,11 +736,6 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py</url>
-          <line>1382</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/wxBot/wxbot.py</url>
           <line>535</line>
           <option name="timeStamp" value="67" />
@@ -747,11 +750,21 @@
           <line>35</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="70" />
+      <option name="time" value="76" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -811,17 +824,16 @@
           <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding>
             <element signature="e#15#28#0" expanded="true" />
-            <element signature="e#25490#26002#0" expanded="true" />
-            <element signature="e#26042#29871#0" expanded="true" />
-            <element signature="e#29912#30378#0" expanded="true" />
-            <element signature="e#30421#30540#0" expanded="true" />
-            <element signature="e#30589#31128#0" expanded="true" />
-            <element signature="e#31174#32079#0" expanded="true" />
-            <element signature="e#32126#32834#0" expanded="true" />
-            <element signature="e#32869#32940#0" expanded="true" />
-            <element signature="e#32981#33650#0" expanded="true" />
-            <element signature="e#33690#34144#0" expanded="true" />
-            <element signature="e#34201#34510#0" expanded="true" />
+            <element signature="e#647#1160#0" expanded="true" />
+            <element signature="e#5410#5953#0" expanded="true" />
+            <element signature="e#5996#6115#0" expanded="true" />
+            <element signature="e#6164#6724#0" expanded="true" />
+            <element signature="e#6770#7675#0" expanded="true" />
+            <element signature="e#7722#8430#0" expanded="true" />
+            <element signature="e#8465#8536#0" expanded="true" />
+            <element signature="e#8577#9246#0" expanded="true" />
+            <element signature="e#9286#9740#0" expanded="true" />
+            <element signature="e#9798#10109#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1060,13 +1072,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sogou/sogou/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1246,23 +1251,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sogou/sogou/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51306415">
-          <caret line="1288" column="17" selection-start-line="1288" selection-start-column="17" selection-end-line="1288" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.6703786">
+          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
           <folding>
             <element signature="e#15#28#0" expanded="true" />
-            <element signature="e#25490#26002#0" expanded="true" />
-            <element signature="e#26042#29871#0" expanded="true" />
-            <element signature="e#29912#30378#0" expanded="true" />
-            <element signature="e#30421#30540#0" expanded="true" />
-            <element signature="e#30589#31128#0" expanded="true" />
-            <element signature="e#31174#32079#0" expanded="true" />
-            <element signature="e#32126#32834#0" expanded="true" />
-            <element signature="e#32869#32940#0" expanded="true" />
-            <element signature="e#32981#33650#0" expanded="true" />
-            <element signature="e#33690#34144#0" expanded="true" />
-            <element signature="e#34201#34510#0" expanded="true" />
+            <element signature="e#647#1160#0" expanded="true" />
+            <element signature="e#5410#5953#0" expanded="true" />
+            <element signature="e#5996#6115#0" expanded="true" />
+            <element signature="e#6164#6724#0" expanded="true" />
+            <element signature="e#6770#7675#0" expanded="true" />
+            <element signature="e#7722#8430#0" expanded="true" />
+            <element signature="e#8465#8536#0" expanded="true" />
+            <element signature="e#8577#9246#0" expanded="true" />
+            <element signature="e#9286#9740#0" expanded="true" />
+            <element signature="e#9798#10109#0" expanded="true" />
           </folding>
         </state>
       </provider>
