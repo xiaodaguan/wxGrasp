@@ -8,7 +8,7 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 LOG_LEVEL = 'INFO'
-DOWNLOAD_DELAY = 5
+DOWNLOAD_DELAY = 15
 RETRY_TIMES = 3
 BOT_NAME = 'sogou'
 
@@ -88,7 +88,7 @@ SEARCH_KEYWORDS = [
         # '大数据金融通报',
         # '移动金融通报',
         # '网络借贷通报',
-        '众筹融资通报',
+        # '众筹融资通报',
         '虚拟货币通报',
         '互联网基金通报',
         '互联网金融上市交易公告书',

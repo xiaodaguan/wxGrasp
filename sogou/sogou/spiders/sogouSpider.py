@@ -73,7 +73,10 @@ class sogouSpider(scrapy.Spider):
                     self.wnds_visited = set()
                     list_page_wnd = self.driver.current_window_handle
                 except Exception:
+
                     log.msg("err while selenium requesting: %s" % url_to_get, _level=log.ERROR)
+                    log.msg(Exception.__str__())
+                    raw_input("waiting for manual conti...")
                     continue
 
                 for i in range(0, 10):
@@ -134,8 +137,6 @@ class sogouSpider(scrapy.Spider):
                         print("element not found while parsing detail page %d" % i)
                     except WebDriverException:
                         print("web driver exception %d" % i)
-                    except Exception:
-                        print("unkonwn err. %d" % i)
 
                 log.msg("list page %s parsed." % url_to_get)
 
