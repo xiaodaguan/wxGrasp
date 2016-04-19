@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb380ab6-59d5-44a7-8071-f1173d26be14" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/qr.png" afterPath="$PROJECT_DIR$/wxBot/qr.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy2/proxy2.py" afterPath="$PROJECT_DIR$/proxy2/proxy2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" afterPath="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/contact_list.json" afterPath="$PROJECT_DIR$/wxBot/contact_list.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/contacts.json" afterPath="$PROJECT_DIR$/wxBot/contacts.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/member_list.json" afterPath="$PROJECT_DIR$/wxBot/member_list.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/public_list.json" afterPath="$PROJECT_DIR$/wxBot/public_list.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/sendUrl.py" afterPath="$PROJECT_DIR$/wxBot/sendUrl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/special_list.json" afterPath="$PROJECT_DIR$/wxBot/special_list.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wxBot/wxbot.py" afterPath="$PROJECT_DIR$/wxBot/wxbot.py" />
     </list>
     <ignored path="proxy2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +35,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="sogouSpider.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.51306415">
+              <caret line="1288" column="17" selection-start-line="1288" selection-start-column="17" selection-end-line="1288" selection-end-column="17" />
+              <folding>
+                <element signature="e#15#28#0" expanded="true" />
+                <element signature="e#25490#26002#0" expanded="true" />
+                <element signature="e#26042#29871#0" expanded="true" />
+                <element signature="e#29912#30378#0" expanded="true" />
+                <element signature="e#30421#30540#0" expanded="true" />
+                <element signature="e#30589#31128#0" expanded="true" />
+                <element signature="e#31174#32079#0" expanded="true" />
+                <element signature="e#32126#32834#0" expanded="true" />
+                <element signature="e#32869#32940#0" expanded="true" />
+                <element signature="e#32981#33650#0" expanded="true" />
+                <element signature="e#33690#34144#0" expanded="true" />
+                <element signature="e#34201#34510#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="sendUrl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxBot/sendUrl.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
               <folding>
                 <element signature="e#38#79#0" expanded="true" />
                 <element signature="e#1773#1850#0" expanded="true" />
@@ -40,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wxbot.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wxbot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wxBot/wxbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.789357">
-              <caret line="600" column="26" selection-start-line="600" selection-start-column="26" selection-end-line="600" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="596" column="31" selection-start-line="596" selection-start-column="31" selection-end-line="596" selection-end-column="31" />
               <folding>
                 <element signature="e#7924#8149#0" expanded="true" />
                 <element signature="e#8185#8833#0" expanded="true" />
@@ -107,9 +138,9 @@
         <option value="$PROJECT_DIR$/sogou/sogou/settings.py" />
         <option value="$PROJECT_DIR$/proxy2/proxy2.py" />
         <option value="$PROJECT_DIR$/sogou/sogou/pipelines.py" />
-        <option value="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
         <option value="$PROJECT_DIR$/wxBot/wxbot.py" />
         <option value="$PROJECT_DIR$/wxBot/sendUrl.py" />
+        <option value="$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py" />
       </list>
     </option>
   </component>
@@ -271,7 +302,7 @@
       <recent name="$PROJECT_DIR$/sogou" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sendUrl">
+  <component name="RunManager" selected="Python.entrypoint">
     <configuration default="false" name="sendUrl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -488,8 +519,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sendUrl" />
-        <item index="1" class="java.lang.String" itemvalue="Python.entrypoint" />
+        <item index="0" class="java.lang.String" itemvalue="Python.entrypoint" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sendUrl" />
         <item index="2" class="java.lang.String" itemvalue="Python.proxy2" />
         <item index="3" class="java.lang.String" itemvalue="Python.testStringSub" />
         <item index="4" class="java.lang.String" itemvalue="Python.testTime" />
@@ -609,7 +640,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460961200308</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="运行版本">
+      <created>1460974578625</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1460974578625</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -669,7 +706,8 @@
     <MESSAGE value="应领导要求,暂停分布式模式开发(wtf... TT)&#10;" />
     <MESSAGE value="修改了proxy2更新mongody的方式" />
     <MESSAGE value="运行版本的一些小调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="运行版本的一些小调整" />
+    <MESSAGE value="运行版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="运行版本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,17 +811,17 @@
           <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding>
             <element signature="e#15#28#0" expanded="true" />
-            <element signature="e#25400#25912#0" expanded="true" />
-            <element signature="e#25952#29673#0" expanded="true" />
-            <element signature="e#29714#30180#0" expanded="true" />
-            <element signature="e#30223#30342#0" expanded="true" />
-            <element signature="e#30391#30930#0" expanded="true" />
-            <element signature="e#30976#31881#0" expanded="true" />
-            <element signature="e#31928#32636#0" expanded="true" />
-            <element signature="e#32671#32742#0" expanded="true" />
-            <element signature="e#32783#33452#0" expanded="true" />
-            <element signature="e#33492#33946#0" expanded="true" />
-            <element signature="e#34003#34312#0" expanded="true" />
+            <element signature="e#25490#26002#0" expanded="true" />
+            <element signature="e#26042#29871#0" expanded="true" />
+            <element signature="e#29912#30378#0" expanded="true" />
+            <element signature="e#30421#30540#0" expanded="true" />
+            <element signature="e#30589#31128#0" expanded="true" />
+            <element signature="e#31174#32079#0" expanded="true" />
+            <element signature="e#32126#32834#0" expanded="true" />
+            <element signature="e#32869#32940#0" expanded="true" />
+            <element signature="e#32981#33650#0" expanded="true" />
+            <element signature="e#33690#34144#0" expanded="true" />
+            <element signature="e#34201#34510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1142,27 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1288" column="17" selection-start-line="1288" selection-start-column="17" selection-end-line="1288" selection-end-column="17" />
-          <folding>
-            <element signature="e#15#28#0" expanded="true" />
-            <element signature="e#25400#25912#0" expanded="true" />
-            <element signature="e#25952#29673#0" expanded="true" />
-            <element signature="e#29714#30180#0" expanded="true" />
-            <element signature="e#30223#30342#0" expanded="true" />
-            <element signature="e#30391#30930#0" expanded="true" />
-            <element signature="e#30976#31881#0" expanded="true" />
-            <element signature="e#31928#32636#0" expanded="true" />
-            <element signature="e#32671#32742#0" expanded="true" />
-            <element signature="e#32783#33452#0" expanded="true" />
-            <element signature="e#33492#33946#0" expanded="true" />
-            <element signature="e#34003#34312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxBot/contact_list.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -1198,10 +1215,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wxBot/qr.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wxBot/sendUrl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
           <folding>
             <element signature="e#38#79#0" expanded="true" />
             <element signature="e#1773#1850#0" expanded="true" />
@@ -1209,15 +1231,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wxBot/qr.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxBot/wxbot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.789357">
-          <caret line="600" column="26" selection-start-line="600" selection-start-column="26" selection-end-line="600" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="596" column="31" selection-start-line="596" selection-start-column="31" selection-end-line="596" selection-end-column="31" />
           <folding>
             <element signature="e#7924#8149#0" expanded="true" />
             <element signature="e#8185#8833#0" expanded="true" />
@@ -1225,6 +1242,27 @@
             <element signature="e#20161#20165#0" expanded="true" />
             <element signature="e#20199#20843#0" expanded="true" />
             <element signature="e#20908#21744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sogou/sogou/spiders/sogouSpider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51306415">
+          <caret line="1288" column="17" selection-start-line="1288" selection-start-column="17" selection-end-line="1288" selection-end-column="17" />
+          <folding>
+            <element signature="e#15#28#0" expanded="true" />
+            <element signature="e#25490#26002#0" expanded="true" />
+            <element signature="e#26042#29871#0" expanded="true" />
+            <element signature="e#29912#30378#0" expanded="true" />
+            <element signature="e#30421#30540#0" expanded="true" />
+            <element signature="e#30589#31128#0" expanded="true" />
+            <element signature="e#31174#32079#0" expanded="true" />
+            <element signature="e#32126#32834#0" expanded="true" />
+            <element signature="e#32869#32940#0" expanded="true" />
+            <element signature="e#32981#33650#0" expanded="true" />
+            <element signature="e#33690#34144#0" expanded="true" />
+            <element signature="e#34201#34510#0" expanded="true" />
           </folding>
         </state>
       </provider>

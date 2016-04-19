@@ -1,7 +1,7 @@
 # coding=utf-8
 import scrapy
 from scrapy import log
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
 from sogou.items import SogouItem
 import time
 import datetime
@@ -18,41 +18,41 @@ class sogouSpider(scrapy.Spider):
     name = 'sogou'
 
     search_keywords = [
-        '互联网金融 专家',
-        '网络借贷 专家',
-        '众筹融资 专家',
-        '互联网支付 专家',
-        '虚拟货币 专家',
-        '互联网基金 专家 ',
-        '互联网保险 专家',
-        '互联网消费金融 专家',
-        '互联网信托 专家',
-        '大数据金融 专家',
-        '互联网金融监管',
-        '互联网金融立法',
-        '互联网金融顶层设计',
-        '促进互联网金融健康发展指导意见',
-        '互联网金融指导意见',
-        '互联网金融基本法',
-        '互联网金融指南',
-        '互联网金融牌照',
-        '第三方支付牌照',
-        '互联网金融联盟',
-        '互联网金融行业协会',
-        '互联网金融分析报告',
-        '大数据金融分析报告',
-        '移动金融分析报告',
-        '互联网支付分析报告',
-        '网络借贷分析报告',
-        '众筹融资分析报告',
-        '虚拟货币分析报告',
-        '互联网金融公告',
-        '互联网信托公告',
-        '大数据金融公告',
-        '移动金融公告',
-        '互联网支付公告',
-        '网络借贷公告',
-        '众筹融资公告',
+        # '互联网金融 专家',
+        # '网络借贷 专家',
+        # '众筹融资 专家',
+        # '互联网支付 专家',
+        # '虚拟货币 专家',
+        # '互联网基金 专家 ',
+        # '互联网保险 专家',
+        # '互联网消费金融 专家',
+        # '互联网信托 专家',
+        # '大数据金融 专家',
+        # '互联网金融监管',
+        # '互联网金融立法',
+        # '互联网金融顶层设计',
+        # '促进互联网金融健康发展指导意见',
+        # '互联网金融指导意见',
+        # '互联网金融基本法',
+        # '互联网金融指南',
+        # '互联网金融牌照',
+        # '第三方支付牌照',
+        # '互联网金融联盟',
+        # '互联网金融行业协会',
+        # '互联网金融分析报告',
+        # '大数据金融分析报告',
+        # '移动金融分析报告',
+        # '互联网支付分析报告',
+        # '网络借贷分析报告',
+        # '众筹融资分析报告',
+        # '虚拟货币分析报告',
+        # '互联网金融公告',
+        # '互联网信托公告',
+        # '大数据金融公告',
+        # '移动金融公告',
+        # '互联网支付公告',
+        # '网络借贷公告',
+        # '众筹融资公告',
         '互联网基金公告',
         '互联网金融通报',
         '互联网信托通报',
@@ -1381,6 +1381,8 @@ class sogouSpider(scrapy.Spider):
                         self.driver.switch_to.window(list_page_wnd)
                     except NoSuchElementException:
                         print("element not found while parsing detail page %d" % i)
+                    except WebDriverException:
+                        print("web driver exception %d" % i)
 
                 log.msg("list page %s parsed." % url_to_get)
                 self.driver.quit()
