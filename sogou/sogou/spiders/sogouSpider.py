@@ -43,7 +43,6 @@ class sogouSpider(scrapy.Spider):
 
         fin.close()
 
-
     def start_requests(self):
 
         if self.settings['WEBDRIVER_USE_PROXY']:
@@ -68,8 +67,9 @@ class sogouSpider(scrapy.Spider):
                 # #
                 log.msg("selenium webdriver visiting list page: [%s]" % url_to_get)
                 self.driver_get_or_retry(url_to_get)
-
+                # self.close_unuse_wnds()
                 self.wnds_visited = set()
+                list_page_wnd = self.driver.current_window_handle
                 for i in range(0, 10):
                     try:
                         brief = self.driver.find_element_by_xpath(
@@ -88,7 +88,7 @@ class sogouSpider(scrapy.Spider):
                         item['brief'] = brief
                         item['weixin_name'] = weixin_name
                         item['pubtime'] = pubtime
-                        item['search_keyword'] = self.keyword
+                        item['search_keyword'] = re.search("query=.+?&", url_to_get).group(0).replace("query=", "").replace("&", "")
 
                         wait = self.get_sleep_time()
                         log.msg("wait %d seconds to get detail page..." % wait)
@@ -98,7 +98,6 @@ class sogouSpider(scrapy.Spider):
                         self.driver.find_element_by_xpath(x).click()
                         time.sleep(3)  # wait page load
 
-                        list_page_wnd = self.driver.current_window_handle
                         wnds = self.driver.window_handles
                         for wnd in wnds:
                             # skip visited windows
@@ -122,21 +121,40 @@ class sogouSpider(scrapy.Spider):
                                 meta = {'item': item}
 
                                 yield scrapy.Request(url=url, callback=self.parse_item, meta=meta)
-
+                        self.driver.close()
                         self.driver.switch_to.window(list_page_wnd)
+                        # break # debug
                     except NoSuchElementException:
                         print("element not found while parsing detail page %d" % i)
                     except WebDriverException:
                         print("web driver exception %d" % i)
 
                 log.msg("list page %s parsed." % url_to_get)
-                self.driver.close()
+
+
 
                 wait = self.get_sleep_time()
                 log.msg("wait %d seconds to get next list page..." % wait)
                 time.sleep(wait)
 
                 url_to_get = self.get_next_url(url_to_get)
+
+    def close_unuse_wnds(self):
+        '''
+        clear unuse window handles, release memory
+        :return: none
+        '''
+        if not self.driver:
+            return
+        curr_wnd = self.driver.current_window_handle
+        for wnd in  self.driver.window_handles:
+            if wnd == curr_wnd:
+                continue
+            self.driver.switch_to.window(wnd)
+            self.driver.close()
+            self.driver.switch_to.window(curr_wnd)
+        self.driver.switch_to.window(curr_wnd)
+
 
     def need_retry_list(self):
         '''
