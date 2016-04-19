@@ -66,7 +66,11 @@ class sogouSpider(scrapy.Spider):
                 # print(self.driver.page_source)
                 # #
                 log.msg("selenium webdriver visiting list page: [%s]" % url_to_get)
-                self.driver_get_or_retry(url_to_get)
+
+                try:
+                    self.driver_get_or_retry(url_to_get)
+                except Exception:
+                    log.msg("err while selenium requesting: %s" % url_to_get, _level=log.ERROR)
                 # self.close_unuse_wnds()
                 self.wnds_visited = set()
                 list_page_wnd = self.driver.current_window_handle
@@ -128,10 +132,10 @@ class sogouSpider(scrapy.Spider):
                         print("element not found while parsing detail page %d" % i)
                     except WebDriverException:
                         print("web driver exception %d" % i)
+                    except Exception:
+                        print("unkonwn err. %d" % i)
 
                 log.msg("list page %s parsed." % url_to_get)
-
-
 
                 wait = self.get_sleep_time()
                 log.msg("wait %d seconds to get next list page..." % wait)
@@ -147,14 +151,13 @@ class sogouSpider(scrapy.Spider):
         if not self.driver:
             return
         curr_wnd = self.driver.current_window_handle
-        for wnd in  self.driver.window_handles:
+        for wnd in self.driver.window_handles:
             if wnd == curr_wnd:
                 continue
             self.driver.switch_to.window(wnd)
             self.driver.close()
             self.driver.switch_to.window(curr_wnd)
         self.driver.switch_to.window(curr_wnd)
-
 
     def need_retry_list(self):
         '''
