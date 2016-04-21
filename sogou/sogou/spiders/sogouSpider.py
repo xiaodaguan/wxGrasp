@@ -249,7 +249,7 @@ class sogouSpider(scrapy.Spider):
 
         item['read_num'] = read_num
         item['like_num'] = like_num
-        log.msg("%s {'read':%d, 'like':%d}" % (item['title'], item['read_num'], item['like_num']))
+        log.msg("%s {'read':%d, 'like':%d} %s, %s" % (item['title'], item['read_num'], item['like_num'],item['pubtime'],item['inserttime']))
         yield item
 
     def switch_time(self, time_str):
