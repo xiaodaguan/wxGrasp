@@ -98,11 +98,15 @@ class sogouSpider(scrapy.Spider):
                         item['brief'] = brief
                         item['weixin_name'] = weixin_name
                         item['pubtime'] = pubtime
-                        item['search_keyword'] = re.search("query=.+?&", url_to_get).group(0).replace("query=", "").replace("&", "")
+                        item['search_keyword'] = re.search("query=.+?&", url_to_get).group(0).replace("query=",
+                                                                                                      "").replace("&",
+                                                                                                                  "")
 
                         # 以下是scrapy版抽取详情页
-                        item['url'] = self.driver.find_element_by_xpath("//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).get_attribute("href")
-                        item['title'] = self.driver.find_element_by_xpath("//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).text
+                        item['url'] = self.driver.find_element_by_xpath(
+                            "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).get_attribute("href")
+                        item['title'] = self.driver.find_element_by_xpath(
+                            "//div[@class='txt-box']/h4/a[contains(@id,'title_%d')]" % i).text
                         # html = self.driver.page_source
 
                         meta = {'item': item}
@@ -151,11 +155,19 @@ class sogouSpider(scrapy.Spider):
 
                 # log.msg("list page %s parsed." % url_to_get)
 
-                wait = 2 * self.get_sleep_time()
+                wait = 15 + 2 * self.get_sleep_time()
                 log.msg("wait %d seconds to get next list page..." % wait)
                 time.sleep(wait)
+                try:
+                    if self.driver.find_element_by_xpath("//a[@id='sogou_next']"):
 
-                url_to_get = self.get_next_url(url_to_get)
+                        url_to_get = self.get_next_url(url_to_get)
+                    else:
+                        log.msg("no next page.")
+                        url_to_get = None
+                except NoSuchElementException:
+                    log.msg("no next page.")
+                    url_to_get = None
 
     def close_unuse_wnds(self):
         '''
@@ -204,6 +216,7 @@ class sogouSpider(scrapy.Spider):
 
     def get_next_url(self, curr_url):
 
+
         page_num = re.search("&page=\d+", curr_url)
         nextUrl = None
         if page_num:
@@ -226,7 +239,7 @@ class sogouSpider(scrapy.Spider):
 
         content = response.xpath("//div[@id='page-content']//text()").extract()
         img_url = response.xpath("//div[@id='page-content']//img/@src").extract()
-        # nQrcode = response.xpath("//img[@id='js_pc_qr_code_img']/@src").extract()
+        # nQrcode = response.xpath("//img[@id='js_pc_qr_code_img]/@src").extract()
         # if nQrcode:
         #     qrcode = "http://mp.weixin.qq.com%s" % response.xpath("//img[@id='js_pc_qr_code_img']/@src").extract()[0].encode('utf-8')
         md5 = hashlib.md5(item['url']).hexdigest()
@@ -238,7 +251,8 @@ class sogouSpider(scrapy.Spider):
         item['md5'] = md5
         item['inserttime'] = inserttime
 
-        yield scrapy.Request(url=item['url'].encode('utf-8').replace("/s?", "/mp/getcomment?"), callback=self.parse_read_like, meta={'item': item})
+        yield scrapy.Request(url=item['url'].encode('utf-8').replace("/s?", "/mp/getcomment?"),
+                             callback=self.parse_read_like, meta={'item': item})
 
     def parse_read_like(self, response):
         item = response.meta['item']
@@ -249,7 +263,8 @@ class sogouSpider(scrapy.Spider):
 
         item['read_num'] = read_num
         item['like_num'] = like_num
-        log.msg("%s {'read':%d, 'like':%d} %s, %s" % (item['title'], item['read_num'], item['like_num'],item['pubtime'],item['inserttime']))
+        log.msg("%s {'read':%d, 'like':%d} %s, %s" % (
+        item['title'], item['read_num'], item['like_num'], item['pubtime'], item['inserttime']))
         yield item
 
     def switch_time(self, time_str):

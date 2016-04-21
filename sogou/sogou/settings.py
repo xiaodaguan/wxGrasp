@@ -8,7 +8,7 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 LOG_LEVEL = 'INFO'
-DOWNLOAD_DELAY = 15
+DOWNLOAD_DELAY = 5
 RETRY_TIMES = 3
 BOT_NAME = 'sogou'
 
@@ -135,8 +135,8 @@ SEARCH_KEYWORDS = [
         # '超额宝 金融',
         # '易宝金融 金融',
         # '速贷邦 金融',
-        '360财富 金融',
-        '796交易所 金融',
+        # '360财富 金融',
+        # '796交易所 金融',
         '拾财贷 金融',
         '银盒子 金融',
         '宜保通 金融',
