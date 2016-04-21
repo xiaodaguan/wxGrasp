@@ -1,7 +1,10 @@
 # grasp wechat
 
+微信改版,proxy和机器人已经不再需要    
+微信抓取移至sogou_weixin  
 
-personal use  
+
+~~personal use~~  
 
 可能需要安装的依赖:  
 ```  
