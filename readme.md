@@ -4,7 +4,8 @@
 微信抓取移至[sogou_weixin](https://github.com/xiaodaguan/sogou_weixin)  
 
 
-~~personal use~~  
+~~
+personal use  
 
 可能需要安装的依赖:  
 ```  
@@ -29,3 +30,4 @@ scrapy, pymongo, selenium
     set proxy for other devices  
 
 ##storage: mongodb
+~~
