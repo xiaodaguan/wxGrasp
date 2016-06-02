@@ -1,7 +1,7 @@
 # grasp wechat
 
 微信改版,proxy和机器人已经不再需要    
-微信抓取移至sogou_weixin  
+微信抓取移至[sogou_weixin](https://github.com/xiaodaguan/sogou_weixin)  
 
 
 ~~personal use~~  
